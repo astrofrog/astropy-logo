@@ -1,10 +1,16 @@
 #!/bin/bash
 
-# Convert form SVG to PNG
-inkscape astropy_logo.svg -e astropy_logo.png 
-inkscape astropy_logo_linkout.svg -e astropy_logo_linkout.png
-inkscape astropy_logo_docs.svg -e astropy_logo_docs.png 
-inkscape astropy_logo_small.svg -e astropy_logo_small.png
+# Convert form Inkscape SVG to PNG
+inkscape --without-gui astropy_logo.svg --export-png=astropy_logo.png 
+inkscape --without-gui astropy_logo_linkout.svg --export-png=astropy_logo_linkout.png
+inkscape --without-gui astropy_logo_docs.svg --export-png=astropy_logo_docs.png 
+inkscape --without-gui astropy_logo_small.svg --export-png=astropy_logo_small.png
+
+# Convert form Inkscape SVG to Plain SVG
+inkscape --without-gui astropy_logo.svg --export-plain-svg=astropy_logo_plain.svg 
+inkscape --without-gui astropy_logo_linkout.svg --export-plain-svg=astropy_logo_linkout_plain.svg
+inkscape --without-gui astropy_logo_docs.svg --export-plain-svg=astropy_logo_docs_plain.svg 
+inkscape --without-gui astropy_logo_small.svg --export-plain-svg=astropy_logo_small_plain.svg
 
 # Convert to PNGs required by Astropy website/docs
 convert -intent Saturation -colorspace sRGB -filter Lanczos -resize 1000x96 -trim astropy_logo.png astropy_banner_96.png
